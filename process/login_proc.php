@@ -3,7 +3,7 @@
 
 if (isset($_POST["inputEmail"]) && isset($_POST["inputPassword"])) {
     $un = $_POST["inputEmail"];
-    $pw = $_POST["inputPassword"];
+    $pw = md5($_POST["inputPassword"]);
     include "../dbinfo.php";
     $cn = mysqli_connect(Host, UN, PW, DBname);
     $rslt = mysqli_query($cn, "select ifnull(check_login('$un','$pw'),'wrong')");
