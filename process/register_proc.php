@@ -4,7 +4,7 @@
 if (isset($_POST["inputEmail"]) && isset($_POST["inputPassword"])&& isset($_POST['inputName'])) {
     $un = $_POST["inputEmail"];
     $pw = md5($_POST["inputPassword"]);
-    $nm = $_POST["inputName"];
+    $nm = mysqli_real_escape_string($_POST["inputName"]);
     include "../dbinfo.php";
     $cn = mysqli_connect(Host, UN, PW, DBname);
     $rslt = mysqli_query($cn, "call regist_user('$un','$pw','$nm')");
