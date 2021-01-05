@@ -66,7 +66,8 @@
             <a class="nav-link " href="#"  aria-disabled="true">Sent</a>
           </li>
         </ul>
-       
+        <a class="btn btn-outline-danger" type="submit" href="process/logout_proc.php">Logout</a>
+
       </div>
     </div>
   </nav>
