@@ -1,22 +1,11 @@
-<?php
-  $uncookie='';
-  $pwcookie='';
-  // var_dump($_COOKIE);
-  // die;
-  if(isset($_COOKIE['usercookie']) and isset($_COOKIE['passcookie']))
-  {
-    $uncookie=$_COOKIE['usercookie'];
-    $pwcookie=$_COOKIE['passcookie'];
-  }
 
-?>
 <!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Signin GuestBook</title>
+  <title>SignUp GuestBook</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -52,21 +41,19 @@
 
   <main class="form-signin">
   <?php include "view_error.php"?>
-    <form method="post" action="process/login_proc.php">
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <form method="post" action="process/register_proc.php">
+      <h1 class="h3 mb-3 fw-normal">Create new account</h1>
       <label for="inputEmail" class="visually-hidden">Email address</label>
-      <input type="email" id="inputEmail" name="inputEmail" value="<?php echo $uncookie; ?>"
-      class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="inputEmail" name="inputEmail" 
+      class="h3 mb-3 form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="visually-hidden">Password</label>
-      <input type="password" id="inputPassword" name="inputPassword" value="<?php echo $pwcookie; ?>"
+      <input type="password" id="inputPassword" name="inputPassword"
        class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" id="rem" name="rem" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-      <a class="mt-5 mb-3" href="register.php">Create new account</a>
+       <label for="inputPassword" class="visually-hidden">Full Name</label>
+      <input type="text" id="inputName" name="inputName"
+       class="form-control" placeholder="Full Name" required>
+      
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
       <p class="mt-5 mb-3 text-muted">&copy; Ahmed Mansour 2021</p>
     </form>
   </main>

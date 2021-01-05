@@ -25,3 +25,16 @@ CREATE  FUNCTION `check_login` (`uname` VARCHAR(255), `pass` VARCHAR(255)) RETUR
 BEGIN
     RETURN (SELECT id FROM users WHERE uname = username AND pass = password);
 end$$
+
+CREATE PROCEDURE `regist_user` (IN `email` VARCHAR(255), IN `pw` VARCHAR(255), IN `fname` VARCHAR(255))  begin
+if exists(select id from users where email=username) Then
+BEGIN
+    select 'Already exists';
+END;
+else
+BEGIN
+    insert into users (`username`, `password`, `fullname`)  values (email,pw,fname);
+    select 'Done';
+END;
+END IF;
+END$$
