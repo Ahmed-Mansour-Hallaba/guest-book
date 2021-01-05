@@ -1,9 +1,15 @@
 <?php
+
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
   if(!isset($_SESSION['uid']))
     header("location:/guestbook/login.php");
+
+    $user_id=$_SESSION['uid'];
+    $user_name=$_SESSION['uname'];
+    include("dbinfo.php");
+
 ?>
 
 
@@ -66,6 +72,7 @@
             <a class="nav-link " href="#"  aria-disabled="true">Sent</a>
           </li>
         </ul>
+        <a class="nav-link" style="color: white;" ><?=$user_name;?></a>
         <a class="btn btn-outline-danger" type="submit" href="process/logout_proc.php">Logout</a>
 
       </div>
