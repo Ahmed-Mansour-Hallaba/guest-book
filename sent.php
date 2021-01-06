@@ -7,7 +7,7 @@ $qry = mysqli_query($cn, "select m.id,content,fullname,created_at from messages 
 
     <div class="container">
         <div class="py-5">
-        <?php @include('view_error.php'); ?>
+            <?php @include('view_error.php'); ?>
 
             <ul class="list-group">
                 <?php
@@ -18,14 +18,15 @@ $qry = mysqli_query($cn, "select m.id,content,fullname,created_at from messages 
                         <span>
                             <a style="float: right;" class="btn btn-danger btn-small mx-1" href="process/delete_proc.php?mid=<?= $arr[0] ?>">Delete</a>
                             <a style="float: right;" class="btn btn-warning btn-small mx-1" href="edit.php?mid=<?= $arr[0] ?>">Edit</a>
-                            <small><?= $arr[3] ?></small></span></li>
+                            <small class="diff"><?= $arr[3] ?></small></span></li>
                 <?php } ?>
             </ul>
         </div>
     </div>
 
 </main>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+<script src="js/diffForHuman.js"></script>
 
 
 <?php @include('master/footer.php'); ?>
