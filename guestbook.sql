@@ -19,6 +19,8 @@ create table messages
     FOREIGN KEY (from_id) REFERENCES users(id),
     FOREIGN KEY (to_id) REFERENCES users(id),
     FOREIGN KEY (main_id) REFERENCES messages(id)
+        ON DELETE SET NULL
+
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

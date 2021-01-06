@@ -69,7 +69,7 @@
             <a class="nav-link" href="inbox.php">Inbox</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#"  aria-disabled="true">Sent</a>
+            <a class="nav-link " href="sent.php"  aria-disabled="true">Sent</a>
           </li>
         </ul>
         <a class="nav-link" style="color: white;" ><?=$user_name;?></a>
