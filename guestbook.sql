@@ -15,10 +15,12 @@ create table messages
     from_id int not null,
     to_id int not null,
     main_id int null,
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (from_id) REFERENCES users(id),
     FOREIGN KEY (to_id) REFERENCES users(id),
     FOREIGN KEY (main_id) REFERENCES messages(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DELIMITER $$
 CREATE  FUNCTION `check_login` (`uname` VARCHAR(255), `pass` VARCHAR(255)) RETURNS INT 

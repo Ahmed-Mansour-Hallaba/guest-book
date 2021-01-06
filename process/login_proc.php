@@ -22,7 +22,7 @@ if (isset($_POST["inputEmail"]) && isset($_POST["inputPassword"])) {
 
             if ($_POST["rem"] == 'remember-me') {
                 setcookie("usercookie", $un, time() + (86400 * 30), "/");
-                setcookie("passcookie", $pw, time() + (86400 * 30), "/");
+                setcookie("passcookie", $_POST["inputPassword"], time() + (86400 * 30), "/");
             }
         }
 

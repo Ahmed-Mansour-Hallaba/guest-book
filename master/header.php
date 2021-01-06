@@ -63,10 +63,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
+            <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Recieved</a>
+            <a class="nav-link" href="inbox.php">Inbox</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="#"  aria-disabled="true">Sent</a>
