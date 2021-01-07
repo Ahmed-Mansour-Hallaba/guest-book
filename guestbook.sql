@@ -42,3 +42,30 @@ BEGIN
 END;
 END IF;
 END$$
+
+CREATE  PROCEDURE `message_history` (IN `mid` INT)  
+BEGIN
+WITH RECURSIVE message_path AS
+  ( SELECT id,
+           content,
+           main_id, 
+			from_id,
+            created_at,
+           1 lvl
+   FROM messages
+   WHERE id=mid
+     UNION ALL
+     SELECT m.id,
+           m.content,
+           m.main_id,
+           m.from_id,
+           m.created_at,
+            lvl+1
+     FROM messages m
+     INNER JOIN message_path mp ON mp.main_id = m.id 
+)
+SELECT mp.*,u.fullname
+FROM message_path mp 
+join users u on (mp.from_id=u.id)
+order by mp.id asc ;
+end$$
