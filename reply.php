@@ -5,6 +5,18 @@ if (!isset($_GET['mid']))
 
 $mid = $_GET['mid'];
 $cn = mysqli_connect(Host, UN, PW, DBname);
+
+
+$qry = mysqli_query($cn, "select to_id from messages where id=$mid");
+$arr = mysqli_fetch_array($qry);
+if($user_id!=$arr[0])
+{
+    $_SESSION["error"] = "Unauthorized action";
+    header("location:inbox.php");
+    die;
+}
+
+
 $qry = mysqli_query($cn, "select m.id,u.id,content,fullname,created_at from messages m join users u on (m.from_id=u.id) where m.id=$mid");
 $arr = mysqli_fetch_array($qry)
 ?>
@@ -15,7 +27,7 @@ $arr = mysqli_fetch_array($qry)
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <?= $arr[2] ?>
-                    <span><small class="p-2"><?= $arr[4] ?></small></span>
+                    <span><small class="p-2 diff"><?= $arr[4] ?></small></span>
                 </li>
             </ul>
         </div>
@@ -31,7 +43,7 @@ $arr = mysqli_fetch_array($qry)
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                    <textarea class="form-control" name="inputMessage" rows="3" required></textarea>
+                    <textarea class="form-control" name="inputMessage" rows="3" maxlength="255"  required></textarea>
                 </div>
                 <div class="mb-3">
                     <button class="w-100 btn btn-primary btn-lg" type="submit">Send</button>
@@ -42,6 +54,7 @@ $arr = mysqli_fetch_array($qry)
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="js/diffForHuman.js"></script>
 
 <script>
     $(document).ready(function() {

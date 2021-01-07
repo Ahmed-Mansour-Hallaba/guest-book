@@ -11,7 +11,7 @@ create table users
 create table messages
 (
      id int  not null primary key AUTO_INCREMENT,
-    content varchar(65535) not null,
+    content varchar(255) not null,
     from_id int not null,
     to_id int not null,
     main_id int null,

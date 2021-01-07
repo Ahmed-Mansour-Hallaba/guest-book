@@ -53,7 +53,9 @@
       <input type="text" id="inputName" name="inputName"
        class="form-control" placeholder="Full Name" required>
       
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+      <button class="w-100 btn btn-lg btn-primary mt-2" type="submit">Sign up</button>
+      <div class="mt-2"><a  href="login.php">Already have email</a></div>
+
       <p class="mt-5 mb-3 text-muted">&copy; Ahmed Mansour 2021</p>
     </form>
   </main>

@@ -25,7 +25,7 @@ $qry = mysqli_query($cn, "select * from users where id!=$user_id");
 
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-          <textarea class="form-control" name="inputMessage" rows="3" required></textarea>
+          <textarea class="form-control" name="inputMessage" rows="3" maxlength="255"  required></textarea>
         </div>
         <div class="mb-3">
           <button class="w-100 btn btn-primary btn-lg" type="submit">Send</button>

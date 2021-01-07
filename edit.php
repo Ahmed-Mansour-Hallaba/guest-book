@@ -11,7 +11,7 @@ $arr = mysqli_fetch_array($qry);
 if($user_id!=$arr[0])
 {
     
-  
+    
     $_SESSION["error"] = "Unauthorized action";
     header("location:sent.php");
     die;
@@ -35,7 +35,7 @@ $arr = mysqli_fetch_array($qry)
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                    <textarea class="form-control" name="inputMessage" rows="3" required><?= $arr[2]?></textarea>
+                    <textarea class="form-control" name="inputMessage" rows="3" maxlength="255" required><?= $arr[2]?></textarea>
                 </div>
                 <div class="mb-3">
                     <button class="w-100 btn btn-primary btn-lg" type="submit">Update</button>

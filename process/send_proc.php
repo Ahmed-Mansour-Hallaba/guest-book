@@ -18,8 +18,8 @@ if (isset($_POST["inputTo"]) && isset($_POST["inputMessage"])) {
         $rslt = mysqli_query($cn, "insert into messages (content,from_id,to_id,main_id) values('$mess','$from','$to','$mid')");
 
     if (mysqli_error($cn)) {
-        $_SESSION["error"] = "Error occurred";
-    } else  $_SESSION["message"] = "Your message has been send successfully! ";
+        $_SESSION["error"] = "Something went wrong !";
+    } else  $_SESSION["message"] = "Your message has been send successfully ! ";
 
     header("location:../index.php");
 } else  header("location:../index.php?error=inv");
